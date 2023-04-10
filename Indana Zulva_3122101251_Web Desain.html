@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Login Form</title>
+        <style>
+            /* styling for login form */
+            #login-form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 50px;
+            }
+
+            #login-form img {
+                width: 100px;
+                height: 100px;
+            }
+
+            #login-form h1 {
+                margin-top: 10px;
+            }
+
+            #login-form form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            #login-form label {
+                margin-top: 10px;
+            }
+
+            #login-form input {
+                margin-top: 5px;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid gray;
+            }
+
+            #login-form button {
+                margin-top: 20px;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                background-color: #1E90FF;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            /* styling for dashboard */
+            #dashboard {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 50px;
+            }
+
+            #dashboard h1 {
+                margin-top: 10px;
+            }
+
+            #dashboard p {
+                margin-top: 5px;
+            }
+
+            #dashboard button {
+                margin-top: 20px;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                background-color: #1E90FF;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            /* styling for register form */
+            #register-form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 50px;
+            }
+
+            #register-form img {
+                width: 100px;
+                height: 100px;
+            }
+
+            #register-form h1 {
+                margin-top: 10px;
+            }
+
+            #register-form form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            #register-form label {
+                margin-top: 10px;
+            }
+
+            #register-form input {
+                margin-top: 5px;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid gray;
+            }
+
+            #register-form button {
+                margin-top: 20px;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                background-color: #1E90FF;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- login form -->
+        <div id="login-form">
+            <img src="logo_stikom.png" alt="Logo">
+            <h1>Login Form</h1>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <button type="submit">Login</button>
+            </form>
+            <button id="register-button">Register</button>
+        </div>
+
+        <!-- dashboard -->
+        <div id="dashboard" style="display:none;">
+            <h1>Welcome to Dashboard</h1>
+            <p>NIM: 3122101251</p>
+            <p>Nama: Indana Zulva</p>
+            <p>Kelas: DM2</p>
+            <button id="logout-button">Logout</button>
+        </div>
+
+        <!-- register form -->
+        <div id="register-form" style="display:none;">
+            <img src="logo_stikom.png" alt="Logo">
+            <h1>Register Form</h1>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <label for="nim">NIM:</label>
+                <input type="text" id="nim" name="nim">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama">
+                <label for="angkatan">Angkatan:</label>
+                <input type="text" id="angkatan" name="angkatan">
+                <label for="kelas">Kelas:</label>
+                <input type="text" id="kelas" name="kelas">
+                <button type="submit">Daftar</button>
+            </form>
+            <button id="back-to-login-button">Kembali</button>
+        </div>
+
+        <!-- script to handle form switching and logout -->
+        <script>
+            const loginForm = document.getElementById( 'login-form' );
+            const dashboard = document.getElementById( 'dashboard' );
+            const registerForm = document.getElementById( 'register-form' );
+            const registerButton = document.getElementById( 'register-button' );
+            const backButton = document.getElementById( 'back-to-login-button' );
+            const logoutButton = document.getElementById( 'logout-button' );
+
+            // function to show login form and hide other forms
+            function showLoginForm ()
+            {
+                loginForm.style.display = 'flex';
+                dashboard.style.display = 'none';
+                registerForm.style.display = 'none';
+            }
+
+            // function to show dashboard and hide other forms
+            function showDashboard ()
+            {
+                loginForm.style.display = 'none';
+                dashboard.style.display = 'flex';
+                registerForm.style.display = 'none';
+            }
+
+            // function to show register form and hide other forms
+            function showRegisterForm ()
+            {
+                loginForm.style.display = 'none';
+                dashboard.style.display = 'none';
+                registerForm.style.display = 'flex';
+            }
+
+            // event listener for register button click
+            registerButton.addEventListener( 'click', showRegisterForm );
+
+            // event listener for back button click
+            backButton.addEventListener( 'click', showLoginForm );
+
+            // event listener for logout button click
+            logoutButton.addEventListener( 'click', showLoginForm );
+
+            // event listener for login form submit
+            loginForm.addEventListener( 'submit', function ( event )
+            {
+                event.preventDefault();
+                showDashboard();
+            } );
+        </script>
+    </body>
+
+</html>
